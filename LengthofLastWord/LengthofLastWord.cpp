@@ -12,20 +12,20 @@ int main()
 
 int lengthOfLastWord(string s)
 {
-	bool isStarted = false;
+	bool isFound = false;
 	int count = 0;
-	for (int i = s.size() - 1; i >= 0; i--)
-	{
-		if (s[i] == ' ')
-		{
-			if (isStarted)
-				break;
-		}
-		else
-		{
+	for (int i = s.length() - 1; i >= 0; i--) {
+		if (s[i] != ' ') {
+			isFound = true;
 			count++;
-			isStarted = true;
 		}
+		else if (s[i] == ' ') {
+			if (isFound) {
+				break;
+			}
+			continue;
+		}
+
 	}
 	return count;
 }
